@@ -14,8 +14,8 @@ The `TreeNode` class is a versatile tool designed to simplify the management of 
   - [Removing A Child](#removing-a-child)
   - [Getting Children](#getting-children)
   - [Getting Ancestors](#getting-ancestors)
-  - [Setting A Child Attribute](#setting-a-child-attribute)
   - [Getting A Child Attribute](#getting-a-child-attribute)
+  - [Setting A Child Attribute](#setting-a-child-attribute)
   - [Removing A Child Attribute](#removing-a-child-attribute)
 - [Conclusion](#conclusion)
 
