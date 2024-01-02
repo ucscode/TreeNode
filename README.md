@@ -86,7 +86,7 @@ $manager->removeChild('supervisor');
 ### Getting Children
 
 ```php
-$supervisor->getChildren(); // Array of TreeNodes
+$manager->getChildren(); // Array of TreeNodes
 ```
 This retrieves an array of children for the `SuperVisor` node, which, in this case, would include `Staff` and `Staff 2`.
 
