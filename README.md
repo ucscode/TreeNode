@@ -1,4 +1,4 @@
-# TreeNode Class: Simplifying Parent-Child Relationships
+# TreeNode: Simplifying Parent-Child Relationships
 
 The `TreeNode` class is a versatile tool designed to simplify the management of parent-child relationships within a hierarchical structure. It is efficient in dealing with organizational charts, family trees, or any scenario involving hierarchical data and also provides an intuitive way to handle relationships.
 
