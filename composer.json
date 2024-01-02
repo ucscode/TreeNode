@@ -1,0 +1,22 @@
+{
+    "name": "ucscode/tree-node",
+    "description": "A versatile tool designed to simplify the management of parent-child relationships within a hierarchical structure",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Uchenna Ajah",
+            "email": "uche23mail@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ucscode\\TreeNode\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
