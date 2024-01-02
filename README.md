@@ -80,7 +80,7 @@ $manager = $ceo->getChild('manager');
 ## Removing A Child
 
 ```php
-$manager->removeChild('supervisor');
+$manager->removeChild('staff');
 ```
 
 ### Getting Children
@@ -88,11 +88,10 @@ $manager->removeChild('supervisor');
 ```php
 $manager->getChildren(); // Array of TreeNodes
 ```
-This retrieves an array of children for the `SuperVisor` node, which, in this case, would include `Staff` and `Staff 2`.
 
 ### Getting Ancestors
 
-TreeNode also allows `Chaining` in the opposite direction.
+TreeNode also allows `chaining` method.
 
 ```php
 $staff2 = $treeNode->getParent(); // Manager
@@ -101,8 +100,6 @@ $ceo = $staff2
         ->getParent() // Manager
             ->getParent(); // Ceo
 ```
-
-This returns an array of ancestors for the 'Supervisor' context. In the example above, it would include 'Manager' and 'CEO'.
 
 ## Getting A Child Attribute
 
