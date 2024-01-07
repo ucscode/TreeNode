@@ -2,7 +2,6 @@
 
 namespace Ucscode\TreeNode\Interface;
 
-use Ucscode\TreeNode\Abstract\AbstractTreeNodeIterator;
 use Ucscode\TreeNode\TreeNode;
 
 interface TreeNodeInterface
@@ -22,5 +21,5 @@ interface TreeNodeInterface
     public function removeAttribute(string $name): self;
     public function getAttributes(): array;
     public function sortChildren(callable $func): void;
-    public function iterateChildren(AbstractTreeNodeIterator $iterator): void;
+    public function traverseChildren(callable $callback): void;
 }

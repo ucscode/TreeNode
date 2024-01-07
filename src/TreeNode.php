@@ -22,11 +22,7 @@ class TreeNode extends AbstractTreeNode
         $child = ($component instanceof TreeNode) ? $component : new self($name, $component);
         $child->parent = $this;
         $child->level = $this->level + 1;
-        
-        $this->inlineNodeRecursion(
-            $child->children,
-            fn (TreeNode $child) => $child->level = ($child->parent->level + 1)
-        );
+        $child->traverseChildren(fn (TreeNode $node) => $node->level = ($node->parent->level + 1));
 
         return $this->children[$name] = $child;
     }
@@ -72,10 +68,11 @@ class TreeNode extends AbstractTreeNode
      */
     public function findChildByIndex(int $index): ?TreeNode
     {
-        return $this->inlineNodeRecursion(
-            $this->children,
-            fn ($child) => $child->index === $index ? $child : null
-        );
+        $node = null;
+        $this->traverseChildren(function (TreeNode $child) use (&$node, $index) {
+            ($child->index === $index && is_null($node)) ? ($node = $child) : null;
+        });
+        return $node;
     }
 
     /**
@@ -125,9 +122,12 @@ class TreeNode extends AbstractTreeNode
     /**
      * Recursively processes an array of children using a callback function.
      */
-    public function iterateChildren(AbstractTreeNodeIterator $iterator): void
+    public function traverseChildren(callable $callback): void
     {
-        $this->childrenParser($this->children, $iterator);
+        array_walk($this->children, function (TreeNode $child) use ($callback) {
+            $callback($child);
+            $child->traverseChildren($callback);
+        });
     }
 
     /**

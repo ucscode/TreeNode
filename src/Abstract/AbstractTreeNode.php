@@ -52,39 +52,4 @@ abstract class AbstractTreeNode implements TreeNodeInterface
     {
         return $this->identity;
     }
-
-    protected function inlineNodeRecursion(array $children, callable $callback): ?TreeNode
-    {
-        foreach($children as $child) {
-            $value = $callback($child);
-            $value ??= $this->inlineNodeRecursion($child->children, $callback);
-            if($value !== null) {
-                return $value;
-            }
-        };
-        return null;
-    }
-
-    protected function childrenParser(array $children, AbstractTreeNodeIterator $iterator): void
-    {
-        foreach($children as $child) {
-
-            $iterator->onIterate($child);
-
-            if($iterator->hasBreak()) {
-                break;
-            }
-
-            if($iterator->hasContinue()) {
-                $iterator->setContinue(false);
-                continue;
-            }
-
-            $this->childrenParser(
-                $child->children,
-                (new ReflectionClass($iterator))->newInstance()
-            );
-
-        };
-    }
 }
