@@ -2,7 +2,6 @@
 
 namespace Ucscode\TreeNode\Abstract;
 
-use ReflectionClass;
 use Ucscode\TreeNode\Interface\TreeNodeInterface;
 use Ucscode\TreeNode\TreeNode;
 
@@ -13,7 +12,7 @@ abstract class AbstractTreeNode implements TreeNodeInterface
     protected array $children = [];
     protected array $attributes = [];
     protected static int $lastIndex = 0;
-    
+
     public readonly int $index;
     public readonly ?string $name;
     protected ?TreeNode $parent = null;
@@ -47,7 +46,7 @@ abstract class AbstractTreeNode implements TreeNodeInterface
     {
         return $this->index;
     }
-    
+
     public function getIdentity(): string
     {
         return $this->identity;

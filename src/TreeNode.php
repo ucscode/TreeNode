@@ -37,11 +37,12 @@ class TreeNode extends AbstractTreeNode
     /**
      * Removes a child node from the current TreeNode object.
      */
-    public function removeChild(string $name): ?TreeNode
+    public function removeChild(string|TreeNode $context): ?TreeNode
     {
-        $child = $this->children[$name] ?? null;
+        $index = is_string($context) ? $context : array_search($context, $this->children, true);
+        $child = $index === false ? null : $this->getChild($index);
         if(!empty($child)) {
-            unset($this->children[$name]);
+            unset($this->children[$index]);
         }
         return $child;
     }
