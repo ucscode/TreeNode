@@ -10,8 +10,9 @@ interface TreeNodeInterface
     public function getName(): ?string;
     public function getIndex(): int;
     public function getIdentity(): string;
-    public function addChild(string $name, array|TreeNode $component = []): TreeNode;  
+    public function addChild(string $name, array|TreeNode $component = []): TreeNode;
     public function getChild(string $name): ?TreeNode;
+    public function hasChild(string|TreeNode $context): bool;
     public function removeChild(string $name): ?TreeNode;
     public function getChildren(): array;
     public function findChildByIndex(int $index): ?TreeNode;

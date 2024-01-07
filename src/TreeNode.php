@@ -3,7 +3,6 @@
 namespace Ucscode\TreeNode;
 
 use Exception;
-use Ucscode\TreeNode\Abstract\AbstractTreeNodeIterator;
 use Ucscode\TreeNode\Abstract\AbstractTreeNode;
 
 class TreeNode extends AbstractTreeNode
@@ -45,6 +44,16 @@ class TreeNode extends AbstractTreeNode
             unset($this->children[$name]);
         }
         return $child;
+    }
+
+    /**
+     * Test if the node has a child node
+     */
+    public function hasChild(string|TreeNode $context): bool
+    {
+        return ($context instanceof TreeNode) ?
+            in_array($context, $this->children, true) :
+            array_key_exists($context, $this->children);
     }
 
     /**
