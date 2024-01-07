@@ -6,7 +6,7 @@ use Ucscode\TreeNode\TreeNode;
 
 abstract class AbstractTreeNodeIterator
 {
-    abstract public function onIterate(TreeNode $child): void;
+    abstract public function onIterate(TreeNode $node): void;
     
     private bool $breakIteration = false;
     private bool $continueIteration = false;
