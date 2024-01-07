@@ -79,7 +79,7 @@ class TreeNode
         $child->parent = $this;
         $child->level = $this->level + 1;
 
-        $this->synchronizeChildren(
+        $this->iterateChildren(
             $child->children,
             fn ($child) => $child->level = ($child->parent->level + 1)
         );
@@ -137,7 +137,7 @@ class TreeNode
      */
     public function findIndexChild(int $index): ?TreeNode
     {
-        return $this->synchronizeChildren($this->children, function ($child) use ($index) {
+        return $this->iterateChildren($this->children, function ($child) use ($index) {
             if($child->index === $index) {
                 return $child;
             }
@@ -210,13 +210,13 @@ class TreeNode
      * @return mixed The value returned by the callback function for a child, if any.
      *               If the callback function never returns a non-null, non-false value, this method returns null.
      */
-    public function synchronizeChildren(array $children, callable $process): mixed
+    public function iterateChildren(array $children, callable $process): mixed
     {
         foreach($children as $child) {
             if(($value = $process($child)) === false) {
                 continue; // Continue to the next child
             }
-            $value ??= $this->synchronizeChildren($child->children, $process);
+            $value ??= $this->iterateChildren($child->children, $process);
             if($value !== null) {
                 return $value; // Return the value and stop processing
             }
