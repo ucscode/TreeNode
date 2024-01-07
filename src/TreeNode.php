@@ -3,7 +3,7 @@
 namespace Ucscode\TreeNode;
 
 use Exception;
-use Ucscode\TreeNode\Abstract\AbstractIterator;
+use Ucscode\TreeNode\Abstract\AbstractTreeNodeIterator;
 use Ucscode\TreeNode\Abstract\AbstractTreeNode;
 
 class TreeNode extends AbstractTreeNode
@@ -125,7 +125,7 @@ class TreeNode extends AbstractTreeNode
     /**
      * Recursively processes an array of children using a callback function.
      */
-    public function iterateChildren(AbstractIterator $iterator): void
+    public function iterateChildren(AbstractTreeNodeIterator $iterator): void
     {
         $this->childrenParser($this->children, $iterator);
     }

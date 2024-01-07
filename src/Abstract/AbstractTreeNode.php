@@ -65,7 +65,7 @@ abstract class AbstractTreeNode implements TreeNodeInterface
         return null;
     }
 
-    protected function childrenParser(array $children, AbstractIterator $iterator): void
+    protected function childrenParser(array $children, AbstractTreeNodeIterator $iterator): void
     {
         foreach($children as $child) {
 

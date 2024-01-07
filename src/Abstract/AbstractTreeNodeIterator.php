@@ -4,7 +4,7 @@ namespace Ucscode\TreeNode\Abstract;
 
 use Ucscode\TreeNode\TreeNode;
 
-abstract class AbstractIterator
+abstract class AbstractTreeNodeIterator
 {
     abstract public function onIterate(TreeNode $child): void;
     
