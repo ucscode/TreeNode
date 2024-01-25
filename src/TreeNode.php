@@ -64,7 +64,7 @@ class TreeNode extends AbstractTreeNode
      */
     public function sortChildren(callable $func): void
     {
-        usort($this->children, $func);
+        uasort($this->children, $func);
     }
 
     /**
