@@ -34,7 +34,7 @@ abstract class AbstractTreeNode extends AbstractTreeNodeFoundation
     public function __debuginfo(): array
     {
         $debugInfo = [
-            '::identity' => $this->identity,
+            'identity' => $this->identity,
             'name' => $this->name,
             'index' => $this->index,
             'level' => $this->level,
@@ -52,7 +52,7 @@ abstract class AbstractTreeNode extends AbstractTreeNodeFoundation
         };
 
         $parentName = $this->parent->name ?? 'NULL';
-        $debugInfo['::parent'] = !$this->parent ? null : $this->parent->identity . " ({$parentName})";
+        $debugInfo['parent'] = !$this->parent ? null : $this->parent->identity . " ({$parentName})";
 
         return $debugInfo;
     }

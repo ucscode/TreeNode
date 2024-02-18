@@ -26,7 +26,7 @@ abstract class AbstractTreeNodeFoundation implements TreeNodeInterface
     public function __construct(?string $name = null, array $attributes = [])
     {
         $this->index = self::$lastIndex;
-        $this->identity = $this::class . '::' . (!$this->index ? 'ROOT' : 'INDEX_' . $this->index);
+        $this->identity = $this::class . '::' . 'INDEX_' . $this->index;
         $this->name = $name;
         array_walk($attributes, fn ($value, $key) => $this->setAttribute($key, $value));
         self::$lastIndex++;
